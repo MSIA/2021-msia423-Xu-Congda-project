@@ -1,3 +1,40 @@
+# NCAA March Madness Bracket Predictor
+
+Developer: Congda Xu
+QA: Xingyun Gu
+
+
+# Project Charter
+
+
+
+## Vision
+Each year when the NCAA Tournament comes, people get super excited about this feast of basketball. In addition to the games, an important part of March Madness is the bracket challenge, which is an activity to make predictions of the game results. Friends set up groups and compete against each other by trying to fill up a bracket with the highest accuracy. When filling up the brackets, people always find it hard to make a choice: they might be unfamiliar with the teams, or the two teams in a matchup are so close in terms of competitiveness. Therefore, I would like to develop an app that can predict the how far a team can proceed in the tournament (e.g., Sweet Sixteen, Elite Eight, Final Four), and the game result of a certain matchup. I hope this app can provide great assistance to people that are suffering from tough choices when filling the brackets, and provide some insights to audiences that are unfamiliar with the teams before the tournament begins.
+
+
+## Mission
+The app will offer two options to the users:
+Option #1: The user selects a team, and the app returns the predicted performance of the team in this year's NCAA Tournament (e.g., Sweet Sixteen, Elite Eight, Final Four).
+Option #2: The user select the two teams of a certain matchup, and the app will predict the winner of the matchup.
+
+Regarding the data source, I would use the March Machine Learning Mania 2021 - NCAAM dataset on Kaggle. The link to the dataset is [here](https://www.kaggle.com/c/ncaam-march-mania-2021/data). 
+
+The current data source provides a variety and sufficient amount of data, including statistics of regular season and tournament for all teams in NCAA Division I for men, ranging from 2003 to 2020. There are some data cleaning needs to be done. The dataset is separated into multiple files, and I need to link them together, filter out the data I need, and make necessary aggregations. In addition, I need to transform certain data for feature engineering.
+
+To enable the first option, I plan to train a multi-class classification model such as KNN. To enable the second option, I plan to train a binary classification model such as logistic regression or SVM or Neural Network. The specific model that I would used for the final app will depend on the performance of the model.
+
+
+## Success Criteria
+**Machine Learning Performance Metric:**
+
+ - Accuracy: Since I am implemeting two classification models, accuracy is going to be an appropriate metric to judge the predicive power of the models. The most basic benchmark accuracy should be 50% (random guess probability), which is a bottom line that my model should surpass, and the model accuracy is definitely the higher the better.
+
+**Business Metric**
+
+ - % Increase of app user for each NCAA season
+ - Ranking of the app-generated full-bracket score when compared with the real brackets that people fill for each NCAA tournament
+
+
 # MSiA423 Template Repository
 
 <!-- toc -->
