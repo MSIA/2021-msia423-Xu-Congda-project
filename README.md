@@ -1,6 +1,6 @@
 # NCAA March Madness Bracket Predictor
 
-Developer: Congda Xu
+Developer: Congda Xu \
 QA: Xingyun Gu
 
 
