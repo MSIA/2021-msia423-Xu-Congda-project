@@ -34,8 +34,51 @@ To enable the first option, I plan to train a multi-class classification model s
  - % Increase of app user for each NCAA season
  - Ranking of the app-generated full-bracket score when compared with the real brackets that people fill for each NCAA tournament
 
-
-
+# Directory Structure
+```
+├── README.md                         <- You are here
+├── app
+│   ├── static/                       <- CSS, JS files that remain static
+│   ├── templates/                    <- HTML (or other code) that is templated and changes based on a set of inputs
+│   ├── boot.sh                       <- Start up script for launching app in Docker container.
+│   ├── Dockerfile                    <- Dockerfile for building image to run app  
+│
+├── config                            <- Directory for configuration files 
+│   ├── logging/                      <- Configuration of python loggers
+│   ├── flaskconfig.py                <- Configurations for Flask API 
+│
+├── data                              <- Folder that contains data used or generated. Only the external/ and sample/ subdirectories are tracked by git. 
+│   ├── external/                     <- External data sources, usually reference data,  will be synced with git
+│   ├── sample/                       <- Sample data used for code development and testing, will be synced with git
+│   ├── NCAA/                         <- Directory for raw data files.
+│
+├── deliverables/                     <- Any white papers, presentations, final work products that are presented or delivered to a stakeholder 
+│
+├── docs/                             <- Sphinx documentation based on Python docstrings. Optional for this project. 
+│
+├── figures/                          <- Generated graphics and figures to be used in reporting, documentation, etc
+│
+├── models/                           <- Trained model objects (TMOs), model predictions, and/or model summaries
+│
+├── notebooks/
+│   ├── archive/                      <- Develop notebooks no longer being used.
+│   ├── deliver/                      <- Notebooks shared with others / in final state
+│   ├── develop/                      <- Current notebooks being used in development.
+│
+├── reference/                        <- Any reference material relevant to the project
+│
+├── src/                              <- Source data for the project 
+│   ├── ncaa_db.py                    <- Python file used to create local/RDS databse.
+│   ├── data_s3.py                    <- Python file used to upload dataset to S3 bucket.
+│
+├── test/                             <- Files necessary for running model tests (see documentation below) 
+│
+├── app.py                            <- Flask wrapper for running the model 
+├── run.py                            <- Simplifies the execution of one or more of the src scripts  
+├── requirements.txt                  <- Python package dependencies 
+├── Dockerfile                        <- Dockerfile for building image in docker
+├── .mysqlconfig                      <- Configuration file for mysql database
+```
 
 # How to Run Code For Mid-Project
 

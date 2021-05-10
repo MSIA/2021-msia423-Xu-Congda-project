@@ -20,6 +20,13 @@ logger = logging.getLogger('s3')
 
 
 def parse_s3(s3path):
+    """Parse the S3 path that is passed in
+       Args:
+           s3path : Enter the s3 path as input
+       Returns:
+           str: name of S3 bucket
+           str: path of S3 bucket
+       """
     regex = r"s3://([\w._-]+)/([\w./_-]+)"
 
     m = re.match(regex, s3path)
@@ -29,7 +36,13 @@ def parse_s3(s3path):
     return s3bucket, s3path
 
 def upload_file_to_s3(local_path, s3path):
-
+    """Upload raw data from local to S3 bucket.
+        Args:
+            local_path: Local path for data file being uploaded
+            s3path: S3 path for data file being stored
+        Returns:
+            None
+        """
     s3bucket, s3_just_path = parse_s3(s3path)
 
     s3 = boto3.resource("s3")

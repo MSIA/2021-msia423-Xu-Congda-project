@@ -8,6 +8,12 @@ from sqlalchemy import Column, Integer, String, MetaData
 
 
 def get_engine_string(string):
+    """Transform user-typed engine string to actual engine string
+        Args:
+            string: parsed argument from run.py to specify the database path (local/RDS)
+        Returns:
+            str: actual engine string to be passed to function create_db()
+    """
 
     DB_HOST = os.environ.get('MYSQL_HOST')
     DB_PORT = os.environ.get('MYSQL_PORT')
@@ -29,6 +35,12 @@ def get_engine_string(string):
 
 
 def create_db(string):
+    """Create the database schema(i.e.tables)
+       Args:
+           string: engine string to specify whether to create database locally or at RDS
+       Returns:
+           None
+    """
     engine_string = get_engine_string(string)
 
     engine = sql.create_engine(engine_string)

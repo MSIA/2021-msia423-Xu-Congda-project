@@ -2,11 +2,12 @@ import os
 import argparse
 
 import logging.config
-logging.config.fileConfig('config/logging/local.conf')
-logger = logging.getLogger('ncaa-pipeline')
 
 import src.data_s3 as ds3
 import src.ncaa_db as db
+
+logging.config.fileConfig('config/logging/local.conf')
+logger = logging.getLogger('ncaa-pipeline')
 
 if __name__ == '__main__':
 
@@ -30,7 +31,9 @@ if __name__ == '__main__':
 
     args = parser.parse_args()
     sp_used = args.subparser_name
+    # The option of uploading raw data to S3
     if sp_used == 'upload':
+        # User chooses to upload multiple files in a directory
         if args.multiple:
             local_folder = args.local_path
             s3_folder = args.s3path
@@ -38,10 +41,13 @@ if __name__ == '__main__':
                 local = local_folder + file
                 s3 = s3_folder + file
                 ds3.upload_file_to_s3(local, s3)
+        # User chooses to upload a single file
         else:
             ds3.upload_file_to_s3(args.local_path, args.s3path)
+    # The option of creating database
     elif sp_used == 'create_db':
         db.create_db(args.engine_string)
+    # The situation where user typed incorrect option
     else:
         parser.print_help()
 
