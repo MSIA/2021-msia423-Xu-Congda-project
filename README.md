@@ -90,7 +90,7 @@ download all the files in the folder 'MDataFiles_Stage2' to your local directory
 ### 2. Build Docker image
 In command line terminal type the following command (you can change 'ncaa' to whatever Docker image name you want)
 ```bash
-docker build -t ncaa
+docker build -t ncaa .
 ```
 
 ### 3. Upload raw data to S3 bucket
