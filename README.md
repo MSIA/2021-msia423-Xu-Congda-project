@@ -90,7 +90,7 @@ download all the files in the folder 'MDataFiles_Stage2' to your local directory
 ### 2. Build Docker image
 In command line terminal type the following command (you can change 'ncaa' to whatever Docker image name you want)
 ```bash
-docker build -t ncaa
+docker build -t ncaa .
 ```
 
 ### 3. Upload raw data to S3 bucket
@@ -109,7 +109,7 @@ docker run -e AWS_ACCESS_KEY_ID -e AWS_SECRET_ACCESS_KEY ncaa run.py upload --mu
 ```
 For example:
 ```bash
-docker run -e AWS_ACCESS_KEY_ID -e AWS_SECRET_ACCESS_KEY ncaa run.py upload --multiple s3://2021-msia423-xu-congda/data/ data/ncaa/
+docker run -e AWS_ACCESS_KEY_ID -e AWS_SECRET_ACCESS_KEY ncaa run.py upload --multiple s3://2021-msia423-xu-congda/data/ data/NCAA/
 ```
 Please be aware that for both paths, they should end with '/'.
 
@@ -120,7 +120,7 @@ docker run -e AWS_ACCESS_KEY_ID -e AWS_SECRET_ACCESS_KEY ncaa run.py upload <s3 
 ```
 For example:
 ```bash
-docker run -e AWS_ACCESS_KEY_ID -e AWS_SECRET_ACCESS_KEY ncaa run.py upload s3://2021-msia423-xu-congda/data/Cities.csv data/ncaa/Cities.csv
+docker run -e AWS_ACCESS_KEY_ID -e AWS_SECRET_ACCESS_KEY ncaa run.py upload s3://2021-msia423-xu-congda/data/Cities.csv data/NCAA/Cities.csv
 ```
 
 ### 4. Create database scheme(i.e. tables) in MySQL database

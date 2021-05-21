@@ -68,13 +68,17 @@ if __name__ == '__main__':
                         help="Where to load data to in S3")
     args = parser.parse_args()
 
+    # The case when the user want to upload a file
     if args.upload:
+        # The case when the user want to upload multiple files in a directory
         if args.multiple:
             local_folder = args.local_path
             s3_folder = args.s3path
+            # Local each file in the specified directory and upload them individually
             for file in os.listdir(local_folder):
                 local = local_folder + file
                 s3 = s3_folder + file
                 upload_file_to_s3(local, s3)
+        # The case when the user want to upload a single file
         else:
             upload_file_to_s3(args.local_path, args.s3path)
