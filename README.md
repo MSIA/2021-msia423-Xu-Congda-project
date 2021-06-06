@@ -125,7 +125,7 @@ source .mysqlconfig
 ```
 
 ## Run the Project
-###1. Upload data to S3, and create tables in RDS
+### 1. Upload data to S3, and create tables in RDS
 First you should build a docker image. In command line terminal type the following command (you can change 'ncaa' to whatever Docker image name you want)
 ```bash
 docker build -f Dockerfile_db -t ncaa .
@@ -136,7 +136,7 @@ docker run -e AWS_ACCESS_KEY_ID -e AWS_SECRET_ACCESS_KEY -e MYSQL_USER -e MYSQL_
 ```
 Please be aware that ingesting data takes some time. 
 
-###2. Run model pipeline
+### 2. Run model pipeline
 First you should build a docker image. In command line terminal type the following command (you can change 'ncaa' to whatever Docker image name you want)
 ```bash
 docker build -f Dockerfile_model -t ncaa .
@@ -145,7 +145,7 @@ Then you can run the docker by typing:
 ```bash
 docker run -e AWS_ACCESS_KEY_ID -e AWS_SECRET_ACCESS_KEY --mount type=bind,source="$(pwd)",target=/app/ ncaa run-model.sh
 ```
-###3. Run app
+### 3. Run app
 First you should build a docker image. In command line terminal type the following command (you can change 'ncaa' to whatever Docker image name you want)
 ```bash
 docker build -f app/Dockerfile_app -t ncaa .
@@ -154,7 +154,7 @@ Then you can run the docker by typing:
 ```bash
 docker run -e MYSQL_USER -e MYSQL_PASSWORD -e MYSQL_HOST -e MYSQL_PORT -e DATABASE_NAME -p 5000:5000 --name test ncaa
 ```
-###4. Run test
+### 4. Run test
 To run unit test, just type:
 ```bash
 pytest
