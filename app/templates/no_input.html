@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        h3 {text-align: center; font-family: Arial; color:white; font-size:150%;}
+        .center {
+          display: block;
+          margin-left: auto;
+          margin-right: auto;
+          width: 50%;
+        }
+        body {background-image: url('static/blue_bg.jpg');}
+        p {text-align: center; font-family: Arial; color:white;font-size:250%;}
+    </style>
+    <meta charset="UTF-8">
+    <title>NCAA March Madness Predictor No Input</title>
+</head>
+
+<body>
+    <h3>
+         <a href = "{{ url_for('index') }}">NCAA March Madness Predictor</a>
+    </h3>
+
+    <img src="{{url_for('static', filename='ncaa_logo.png')}}" alt="NCAA Logo" style="width:200px;height:100px;" class = 'center'>
+
+    <p>Please enter both teams' names.</p>
+
+    <img src="{{url_for('static', filename='left_bracket.png')}}" alt="NCAA Bracket" style="width:400px;height:400px;" align = 'left'>
+    <img src="{{url_for('static', filename='basketball.png')}}" alt="NCAA Ball" style="width:400px;height:400px;" align = 'center'>
+    <img src="{{url_for('static', filename='right_bracket.png')}}" alt="NCAA Bracket" style="width:400px;height:400px;" align = 'right'>
+</body>
+</html>
