@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        h3 {text-align: center; font-family: Arial}
+        .center {
+          display: block;
+          margin-left: auto;
+          margin-right: auto;
+          width: 50%;
+        }
+        body {background-image: url('static/blue_bg.jpg');}
+        button, input, select, textarea {
+          font-family: Arial;
+          font-size: 120%;
+        }
+        p {text-align: center; font-family: Arial; color:white;font-size:200%;}
+        a {text-align: center; font-family: Arial; color:white;font-size:150%}
+    </style>
+    <meta charset="UTF-8">
+    <title>No Season</title>
+</head>
+
+<body>
+    <h3 style="color:white;font-size:200%;">
+         NCAA March Madness Predictor
+    </h3>
+
+    <img src="{{url_for('static', filename='ncaa_logo.png')}}" alt="NCAA Logo" style="width:200px;height:100px;" class = 'center'>
+
+    <p>
+        {% for team in no_season %}
+        {{ team }} was not in the league this season! <br>
+        {% endfor %}
+    </p>
+
+    <img src="{{url_for('static', filename='left_bracket.png')}}" alt="NCAA Bracket" style="width:400px;height:400px;" align = 'left'>
+    <img src="{{url_for('static', filename='right_bracket.png')}}" alt="NCAA Bracket" style="width:400px;height:400px;" align = 'right'>
+
+    <div style="text-align: center">
+        <a href = "{{ url_for('home') }}">Make Another Prediction</a>
+    </div>
+</body>
+</html>
