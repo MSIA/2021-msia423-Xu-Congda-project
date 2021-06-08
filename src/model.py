@@ -120,12 +120,14 @@ def evaluation(y_test, y_pred):
            y_test(pd.Series): y variables of test data
            y_pred(np.ndarray): predicted values
        Returns:
-           None
+           result(pd.Dataframe): result of evaluation
     """
     accuracy = metrics.accuracy_score(y_test, y_pred)
     confusion = metrics.confusion_matrix(y_test, y_pred)
+    result = pd.DataFrame(confusion,
+                       index=['Actual negative', 'Actual positive'],
+                       columns=['Predicted negative', 'Predicted positive'])
     print('Accuracy on test: %0.3f' % accuracy)
     print()
-    print(pd.DataFrame(confusion,
-                       index=['Actual negative', 'Actual positive'],
-                       columns=['Predicted negative', 'Predicted positive']))
+    print(result)
+    return result

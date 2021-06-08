@@ -128,7 +128,7 @@ if __name__ == '__main__':
         elif args.step == 'predict':
             output = model.make_predict(inputs[0], inputs[1])
         elif args.step == 'evaluate':
-            model.evaluation(inputs[0], inputs[1])
+            output = model.evaluation(inputs[0], inputs[1])
         # save artifacts to specified output path
         if args.output is not None:
             # case when there is only one output path
