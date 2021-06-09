@@ -16,4 +16,6 @@ data/*
 config/local
 !.gitkeep
 
+.mysqlconfig
+
 copilot
