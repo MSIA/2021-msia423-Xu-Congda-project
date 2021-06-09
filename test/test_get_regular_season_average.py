@@ -26,3 +26,7 @@ def test_get_regular_season_average_happy():
                             )
     df_test = get_regular_season_average('data/test_df_in_happy.csv', 'data/test_output_happy.csv')
     assert df_test.equals(df_true)
+
+def test_get_regular_season_average_unhappy():
+    with pytest.raises(TypeError):
+        df_test = get_regular_season_average(1, 2)

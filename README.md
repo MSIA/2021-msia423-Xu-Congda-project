@@ -152,10 +152,14 @@ docker build -f app/Dockerfile_app -t ncaa .
 ```
 Then you can run the docker by typing:
 ```bash
-docker run -e MYSQL_USER -e MYSQL_PASSWORD -e MYSQL_HOST -e MYSQL_PORT -e DATABASE_NAME -p 5000:5000 --name test ncaa
+docker run -e SQLALCHEMY_DATABASE_URI -p 5000:5000 ncaa
 ```
 ### 4. Run test
+First you should build a docker image. In command line terminal type the following command (you can change 'ncaa' to whatever Docker image name you want)
+```bash
+docker build -f Dockerfile_python -t ncaa .
+```
 To run unit test, just type:
 ```bash
-pytest
+docker run ncaa -m pytest
 ```

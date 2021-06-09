@@ -14,6 +14,12 @@ def get_teams(file_path, output_path):
         Returns:
             teams(pd.Dataframe): teams dataframe
     """
+    if type(file_path) != str:
+        logger.error('Invalid input value')
+        raise TypeError('The file path you entered is invalid')
+    if type(output_path) != str:
+        logger.error('Invalid input value')
+        raise TypeError('The file path you entered is invalid')
     teams = pd.read_csv(file_path)
     teams = teams[['TeamID', 'TeamName']]
     teams.to_csv(output_path)
@@ -29,6 +35,12 @@ def get_regular_season_average(file_path, output_path):
         Returns:
             regular_avg(pd.Dataframe): regular season average dataframe
     """
+    if type(file_path) != str:
+        logger.error('Invalid input value')
+        raise TypeError('The file path you entered is invalid')
+    if type(output_path) != str:
+        logger.error('Invalid input value')
+        raise TypeError('The file path you entered is invalid')
     regular_games = pd.read_csv(file_path)
     regular_wins = regular_games[['Season', 'WTeamID','WScore', 'WFGM', 'WFGA', 'WFGM3', 'WFGA3', 'WFTM', 'WFTA', 'WOR', 'WDR', 'WAst', 'WTO', 'WStl', 'WBlk', 'WPF']]
     regular_wins.columns = ['Season', 'Team', 'Score', 'FGM', 'FGA', 'FGM3', 'FGA3', 'FTM', 'FTA', 'OR', 'DR', 'Ast', 'TO', 'Stl', 'Blk', 'PF']
@@ -69,6 +81,12 @@ def get_tourney_seeds(file_path, output_path):
         Returns:
             seeds(pd.Dataframe): tourney seeds dataframe
     """
+    if type(file_path) != str:
+        logger.error('Invalid input value')
+        raise TypeError('The file path you entered is invalid')
+    if type(output_path) != str:
+        logger.error('Invalid input value')
+        raise TypeError('The file path you entered is invalid')
     seeds = pd.read_csv(file_path)
     seeds['Seed'] = seeds['Seed'].apply(get_seed)
     seeds.to_csv(output_path)
@@ -84,6 +102,12 @@ def get_tourney_result(file_path, output_path):
         Returns:
             tourney_result(pd.Dataframe): tourney result dataframe
     """
+    if type(file_path) != str:
+        logger.error('Invalid input value')
+        raise TypeError('The file path you entered is invalid')
+    if type(output_path) != str:
+        logger.error('Invalid input value')
+        raise TypeError('The file path you entered is invalid')
     tourney = pd.read_csv(file_path)
     tourney_result = tourney[['Season', 'WTeamID', 'LTeamID']]
     tourney_result.to_csv(output_path)
